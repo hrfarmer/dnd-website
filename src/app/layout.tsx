@@ -1,8 +1,9 @@
 // TODO: fix the font it's not working lol
 
 import type { Metadata } from "next";
-import "./globals.css";
 import { TaskbarContextProvider } from "./TaskbarContext";
+import { ClerkProvider } from "@clerk/nextjs";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "D&D Campaign",
@@ -15,13 +16,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <head>
-        <meta name="darkreader-lock" />
-      </head>
-      <TaskbarContextProvider>
-        <body className="font-windowsFont">{children}</body>
-      </TaskbarContextProvider>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <head>
+          <meta name="darkreader-lock" />
+        </head>
+        <TaskbarContextProvider>
+          <body className="font-windowsFont">{children}</body>
+        </TaskbarContextProvider>
+      </html>
+    </ClerkProvider>
   );
 }
