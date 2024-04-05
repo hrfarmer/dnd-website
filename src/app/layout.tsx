@@ -2,8 +2,7 @@
 
 import type { Metadata } from "next";
 import "./globals.css";
-import { TaskbarContext, TaskbarContextProvider } from "./TaskbarContext";
-import { SetStateAction, useState, Dispatch } from "react";
+import { TaskbarContextProvider } from "./TaskbarContext";
 
 export const metadata: Metadata = {
   title: "D&D Campaign",
@@ -17,6 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="darkreader-lock" />
+      </head>
       <TaskbarContextProvider>
         <body className="font-windowsFont">{children}</body>
       </TaskbarContextProvider>
