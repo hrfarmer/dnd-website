@@ -6,7 +6,7 @@ import NotepadLayout from "./components/NotepadLayout";
 import { useContext, useEffect, useState } from "react";
 import { TaskbarContext } from "./TaskbarContext";
 import { checkIfInDiscord } from "./actions";
-import { useUser } from "@clerk/nextjs";
+import { SignOutButton, useUser } from "@clerk/nextjs";
 
 interface LayoutMatcherType {
   [key: string]: React.ComponentType<any>;
@@ -38,7 +38,12 @@ export default function Home() {
   }
 
   if (!isAuthorized) {
-    return <div>Not in da server buddy, gidaut</div>;
+    return (
+      <div className="flex items-center justify-center">
+        <div>ur not in the server buddy</div>
+        <SignOutButton />
+      </div>
+    );
   }
 
   return (
