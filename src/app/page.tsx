@@ -39,7 +39,7 @@ export default function Home() {
 
   if (!isAuthorized) {
     return (
-      <div className="flex items-center justify-center">
+      <div className="flex flex-col items-center justify-center w-svw h-svw">
         <div>ur not in the server buddy</div>
         <SignOutButton />
       </div>
